@@ -1,5 +1,5 @@
 const { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } = require('constants');
-const { session, app, BrowserWindow } = require('electron');
+const { session, app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -21,7 +21,18 @@ const createWindow = () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 
-
+  mainWindow.on('close', function(e) {
+    var choice = dialog.showMessageBoxSync(this,
+      {
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        title: 'Confirm',
+        message: 'Are you sure you want to quit?'
+      });
+      if (choice == 1) {
+        e.preventDefault();
+      }
+  })
 };
 
 // This method will be called when Electron has finished
