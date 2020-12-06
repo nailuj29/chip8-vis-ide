@@ -6,7 +6,5 @@
 <TopBar />
 
 <style lang="scss">
-button {
-	
-}
+
 </style>
