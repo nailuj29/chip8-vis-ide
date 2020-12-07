@@ -1,4 +1,4 @@
-import sveltePreprocess from "svelte-preprocess";
+sveltePreprocess = require("svelte-preprocess");
 
 const production = !process.env.ROLLUP_WATCH;
 

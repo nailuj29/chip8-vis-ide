@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import TopBar from './components/TopBar.svelte';
 </script>
 
